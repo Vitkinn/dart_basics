@@ -1,3 +1,5 @@
+import 'dart:io';
+
 void main() {
     anIf();
     print('\n');
@@ -8,6 +10,10 @@ void main() {
     aFor();
     print('\n');
     aList();
+    print('\n');
+    addText();
+    print('\n');
+    aFile();
 }
 
 void anIf() {
@@ -88,4 +94,18 @@ void aList() {
     grade2.forEach((score) {
         print(score);
     });
+}
+
+void aFile() {
+    var file = File('hello.txt').readAsString().then((Content) {
+        print(Content);
+    });
+}
+
+void addText() {
+    var file = File('hello.txt');
+    file.writeAsStringSync('\nTeste de adição de linha');
+
+    var data = file.readAsStringSync();
+    print(data);
 }
